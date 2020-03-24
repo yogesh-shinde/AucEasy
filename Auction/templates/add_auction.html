@@ -1,0 +1,32 @@
+{% extends 'AcuEasy/admin_base2.html'%} {% load crispy_forms_tags %} <br />
+{% block title %} Auction Details {% endblock %} {% block body %}
+<style>
+  h1 {
+    color: #280a7c;
+  }
+</style>
+{% if messages %}
+{% for message in messages %}
+<div class='alert {{ message.tags }} m-2 ' id='msg' role="alert">
+  {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<div align="center">
+  <h1>Add Current Auction</h1>
+</div>
+<hr />
+<form align="center" action="/auction/add-auction/" method="POST">
+  {% csrf_token %} {{ currentForm | crispy }}
+  <br />
+  <button class="btn btn-primary">Add</button>
+</form>
+{% endblock %}
+
+<script>
+  setTimeout(function () {
+    if ($('#msg').length > 0) {
+      $('#msg').remove();
+    }
+  }, 2000)
+</script>

@@ -1,0 +1,22 @@
+{% extends 'AcuEasy/user_guest.html'%}
+
+{% load crispy_forms_tags %}
+{% block body %}
+<style>
+    h1 {
+        color: #280a7c;
+    }
+</style>
+
+<div align="center">
+    <h1>Admin Registration </h1>
+</div>
+<hr>
+
+<form action="/admingui/admin-register/" method="POST">
+    {% csrf_token %}
+    {{adminform|crispy}}<br><br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

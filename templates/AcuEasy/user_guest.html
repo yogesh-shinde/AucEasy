@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+  <title>
+    {% block title %} AcuEasy {% endblock %}
+  </title>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static "images/auction_logo.png" %}" />
+  <link rel="stylesheet" href="{% static "css/base.css"%}" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css" />
+  <!-- Font Awesome JS -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+    integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+    crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+    integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+    crossorigin="anonymous"></script>
+  <script></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3>AcuEasy</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+        <!-- <p>Dummy Heading</p> -->
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <!-- <li>
+          <a href="#">Auction Status</a>
+        </li> -->
+        <li>
+          <a href="#">Success Auctions</a>
+        </li>
+        <li>
+          <a href="#">Auction Query</a>
+        </li>
+        <!-- <li>
+          <a href="#">Feedback</a>
+        </li> -->
+        <li>
+          <a href="/user/user-aboutus/">About Us</a>
+        </li>
+        <li>
+          <a href="/user/contact-us/">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Page Content Holder -->
+
+    <div id="content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div align="center">
+          <img src="{% static 'images/auction4.jpg' %}" alt="auction image" width="30%" height="25%" align="left">
+          <h1 style="color:#6c5ce7;">AcuEasy</h1 style>
+        </div>
+
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+          <!------------Login--------->
+          <li class="nav-item">
+            <a class="nav-link" href="/user/user-login/">Login</a>
+          </li>
+          <!-- <li class="nav-item">
+              <a class="nav-link" href="/user/user-register/">Registration</a>
+            </li> -->
+        </ul>
+      </nav>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(190, 222, 245);">
+        <div class="container-fluid">
+          <button type="button" id="sidebarCollapse" class="navbar-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <!-- <button
+              class="btn btn-dark d-inline-block d-lg-none ml-auto"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <i class="fas fa-align-justify"></i>
+            </button> -->
+          <a class="navbar-brand" href="/">AcuEasy</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+            aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+            <ul class="navbar-nav mr-auto">
+              <!-- <li class="nav-item active">
+                  <a class="nav-link" href="#"
+                    >Auction Home
+                    <span class="sr-only">(current)</span>
+                  </a>
+                </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="/auction/current-auction/">Current Auctions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/auction/upcoming-auction/">Upcoming Auctions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Closed Auctions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admingui/admin-login/">Admin Login</a>
+              </li>
+            </ul>
+            <!-- <ul class="navbar-nav ml-auto nav-flex-icons">
+              <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+
+              <!------------Login--------->
+            <!-- <li class="nav-item">
+                  <a class="nav-link" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Registration</a>
+                </li>
+            </ul> -->
+          </div>
+        </div>
+      </nav>
+      <div>
+        {% block body %} Write Block code!!! {% endblock %}
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery CDN - Slim version (=without AJAX) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <!-- Popper.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+    integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $(this).toggleClass('active');
+      });
+    });
+  </script>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <!-- Footer -->
+  <!-- Copyright -->
+  <hr>
+  <div class="footer-copyright text-center py-3">
+    <b>© 2020 Copyright:</b>
+    <a href="https://www.completejavaclasses.com/">
+      <b>Complete Java Classes</b>
+    </a>
+  </div>
+  <!-- Copyright -->
+</body>
+
+</html>

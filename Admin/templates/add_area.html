@@ -1,0 +1,19 @@
+{% extends 'AcuEasy/admin_base2.html'%}
+
+{% load crispy_forms_tags %}
+{% block body %}
+<style>
+    h1 {
+        color: #280a7c;
+        align: "center";
+    }
+</style>
+<h1 align='center'>Add Area </h1>
+<hr>
+<form action="/admingui/add-area/" method="POST">
+    {% csrf_token %}
+    {{areaform|crispy}}<br><br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

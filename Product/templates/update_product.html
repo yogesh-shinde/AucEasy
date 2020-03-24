@@ -1,0 +1,46 @@
+{% extends 'AcuEasy/user_base2.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Update Display Product {% endblock %}
+
+{% block body %}
+<div class="breadcrumb-top">
+    <ul class="breadcrumbs ul-reset">
+        <li>
+            <span>
+                <a href="/product/add-product/">Add Product</a> >>
+                <span>
+                    <a href="/product/display-product/">Display Product</a> >>
+                    <span>
+                        Update Product
+                    </span>
+                </span>
+            </span>
+        </li>
+    </ul>
+</div>
+<style>
+    h1 {
+        color: #280a7c;
+    }
+</style>
+<div align="center">
+    <h1> Update Product Information</h1>
+</div>
+<hr>
+<form action="/product/update-product/{{obj.productinformation_id}}/" method="post" autocomplete="off"
+    enctype="multipart/form-data">
+
+    {% csrf_token %}<br>
+    {{form|crispy}}<br>
+    {% for x in img %}
+    <img src="{{x.productimages_image.url}}" class="img" width="250" height="200">
+    {% endfor %}
+
+    <br><br>
+    <input type="file" name="images" multiple>
+    <br><br><br>
+    <button type="submit" class="btn btn-primary ">Save</button>
+
+</form>
+{% endblock %}

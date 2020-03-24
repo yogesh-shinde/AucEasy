@@ -1,0 +1,71 @@
+{% extends 'AcuEasy/admin_base2.html' %}
+{% load static %}
+
+{% block title %}Product Verification{% endblock %}
+{% block body %}
+
+<style>
+    .img {
+        float: left;
+        width: 100px;
+        height: 100px;
+        background-size: cover;
+    }
+
+    h1 {
+        color: #280a7c;
+    }
+</style>
+
+<h1 align="center">Product Successfully Verified</h1>
+
+<form>
+    {% for i in objproduct %}
+    <table align="center" width="80%">
+        <tr>
+            <td style="width:25%;"><b>Product Id </b>&nbsp;</td>
+            <td style="width:45%;">{{i.productinformation_id}}</td>
+        </tr>
+        <tr>
+            <td style="width:25%;"><b>Product Category </b>&nbsp;</td>
+            <td style="width:45%;">{{i.productsubcategory.productcategory.productcategory_name}}</td>
+        </tr>
+        <tr>
+            <td style="width:25%;"><b>Product Subcategory </b>&nbsp;</td>
+            <td style="width:45%;">{{i.productsubcategory}}</td>
+        </tr>
+        <tr>
+            <td style="width:25%;"><b>Product Name </b>&nbsp;</td>
+            <td style="width:45%;">{{i.productinformation_name}}</td>
+        </tr>
+        <tr>
+            <td style="width:25%;"><b>Product Details </b>&nbsp;</td>
+            <td style="width:45%;">{{i.productinformation_details}}</td>
+        </tr>
+        <tr>
+            <td style="width:25%;"><b>Base Price</b>&nbsp;</td>
+            <td style="width:45%;">{{i.productinformation_baseprice}}</td>
+        </tr>
+        <tr>
+            <td><b>User </b> &nbsp;&nbsp </td>
+            <td>{{i.user}}</td>
+        </tr>
+        <!-- use for loop to display single image i.e. for x in i of information -->
+
+        <tr>
+            <td><b>Prduct Images </b></td>
+            <td>
+                {% for x in i.productimages_set.all %}
+
+                <img src="{{x.productimages_image.url}}" class="img" width="40%" height="40%">&nbsp;
+
+                {% endfor %}
+            </td>
+        </tr>
+        <div>
+            <hr>
+        </div>
+        {% endfor %}
+    </table>
+</form>
+{% endblock %}

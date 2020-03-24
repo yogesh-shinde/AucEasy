@@ -1,0 +1,23 @@
+{% extends 'AcuEasy/user_base2.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Product Information {% endblock %}
+{% block body %}
+<style>
+    h1 {
+        color: #280a7c;
+    }
+</style>
+<div>
+    <h1 align="center">Product Information</h2>
+</div>
+<hr>
+<form action="/product/add-product/" method="POST" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}<br>
+    {{imgform|crispy}}<br>
+    <input type="file" name="images" multiple>
+    <br><br><br>
+    <button type="submit" class="btn btn-primary ">Add Product</button>
+
+    {% endblock %}

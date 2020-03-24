@@ -1,0 +1,24 @@
+{% extends 'AcuEasy/user_base2.html'%} {% load crispy_forms_tags %} <br />
+{% block title %} Auction Details {% endblock %} {% block body %}
+<style>
+  h1 {
+    color: #280a7c;
+  }
+</style>
+{% if messages %}
+{% for message in messages %}
+<div class="alert {{ message.tags }} m-2" id='msg' role="alert">
+  {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<div align="center">
+  <h1>Add Auction Details</h1>
+</div>
+<hr />
+<form align="center" action="/auction/add-to-auction/{{prod.productinformation_id}}/" method="POST">
+  {% csrf_token %} {{ form | crispy }}
+  <br />
+  <button class="btn btn-primary">Add</button>
+</form>
+{% endblock %}

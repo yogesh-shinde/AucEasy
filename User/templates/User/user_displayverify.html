@@ -1,0 +1,78 @@
+{% extends 'AcuEasy/user_base2.html' %}
+{% load static %}
+
+{% block title %}Add to Auction{% endblock %}
+
+{% block body %}
+
+<style>
+    .img {
+        float: left;
+        width: 100px;
+        height: 100px;
+        background-size: cover;
+    }
+
+    h1 {
+        color: #280a7c;
+    }
+
+    /* p,
+    caption {
+        color: #00802b;
+    } */
+</style>
+
+<div align="center">
+    <h1>Add Auction</h1>
+</div>
+<hr>
+{% for i in information %}
+<table align="center" width="80%">
+    <div class="alert-success">
+        <p>Your product is verified and eligible for Auction !!!</p>
+    </div>
+    <tr>
+        <td style="width:25%;"><b>Product Id </b>&nbsp;</td>
+        <td style="width:45%;">{{i.productinformation_id}}</td>
+    </tr>
+    <tr>
+        <td style="width:25%;"><b>Product Category </b>&nbsp;</td>
+        <td style="width:45%;">{{i.productsubcategory.productcategory.productcategory_name}}</td>
+    </tr>
+    <tr>
+        <td style="width:25%;"><b>Product Subcategory </b>&nbsp;</td>
+        <td style="width:45%;">{{i.productsubcategory}}</td>
+    </tr>
+    <tr>
+        <td style="width:25%;"><b>Product Name </b>&nbsp;</td>
+        <td style="width:45%;">{{i.productinformation_name}}</td>
+    </tr>
+    <tr>
+        <td style="width:25%;"><b>Product Details </b>&nbsp;</td>
+        <td style="width:45%;">{{i.productinformation_details}}</td>
+    </tr>
+    <tr>
+        <td style="width:25%;"><b>Base Price</b>&nbsp;</td>
+        <td style="width:45%;">{{i.productinformation_baseprice}}</td>
+    </tr>
+    <tr>
+        <td><b>Prduct Images </b></td>
+        <td>
+            {% for x in i.productimages_set.all %}
+            <img src="{{x.productimages_image.url}}" class="img" width="40%" height="40%">&nbsp;
+            {% endfor %}
+        </td>
+    </tr>
+    <!-- <tr>
+        <td style="width:25%;"><b>Date-Time </b></td>
+        <td style="width:45%;"><input type="text"></td>
+    </tr> -->
+    <tr>
+        <td><button type="submit" class="btn btn-primary"><a
+                    href="/auction/add-to-auction/{{i.productinformation_id}}/">Add Auction</a> </button></td>
+    </tr>
+</table>
+<hr>
+{% endfor %}
+{% endblock %}

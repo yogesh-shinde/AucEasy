@@ -1,0 +1,33 @@
+{% extends 'AcuEasy/user_guest.html'%}
+{% load crispy_forms_tags %}
+{% block title %}
+Admin Login
+{% endblock %}
+{%  block body %}
+<style>
+    h1 {
+        color: #280a7c;
+    }
+</style>
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert {{ message.tags }} m-2" id="msg" role="alert">
+    {{message}}
+</div>
+{% endfor %}
+{% endif %}
+
+<div>
+    <h1 align='center'> Admin Login</h1>
+</div>
+<hr>
+
+<form action="/admingui/admin-login/" method="POST">
+    {% csrf_token %}
+    {{admin_loginform|crispy}}<br>
+    <button type="submit" class="btn btn-primary">Login</button>&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary"><a href="/admingui/admin-register/">Registration</a></button>
+</form>
+
+{% endblock %}

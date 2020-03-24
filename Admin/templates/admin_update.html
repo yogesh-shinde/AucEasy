@@ -1,0 +1,18 @@
+{% extends 'AcuEasy/admin_base2.html'%}
+
+{% load crispy_forms_tags %}
+{% block body %}
+<style>
+    h1 {
+        color: #280a7c;
+    }
+</style>
+
+<h1 align='center'>Update Profile</h1>
+<hr>
+<form action="/admingui/admin-update/" method="POST">
+    {% csrf_token %}
+    {{adminform|crispy}}<br>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+{% endblock %}
